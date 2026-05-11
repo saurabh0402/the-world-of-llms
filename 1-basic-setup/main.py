@@ -32,7 +32,7 @@ tool_mapper = {
 }
 
 def get_llm_res(prompt: str) -> str:
-    messages = [(HumanMessage(prompt))]
+    messages = [HumanMessage(prompt)]
     while True:
         llm_res = llm.invoke(messages)
         messages.append(llm_res)
