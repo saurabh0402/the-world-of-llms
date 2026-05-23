@@ -21,7 +21,7 @@ def get_precipitation(city: str) -> str:
     return '10 percent'
 
 llm = ChatOllama(
-    model='qwen3.5:4b',
+    model='gemma4:q4',
     reasoning=False
 )
 llm = llm.bind_tools([get_temperature, get_precipitation])

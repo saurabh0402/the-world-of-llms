@@ -1,6 +1,7 @@
 # The World of LLMs
 - [x] Basic Setup with Ollama
 - [x] MCP Client
+- [x] Streaming
 - [ ] ReAct
 - [ ] Human in the Loop
 - [ ] MCP Server
