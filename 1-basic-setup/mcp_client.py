@@ -39,9 +39,8 @@ tools = [
 ]
 
 llm = ChatOllama(
-    # model='gemma4:q4',
-    model='qwen3.5:4b',
     # model='hf.co/unsloth/Qwen3-4B-Thinking-2507-GGUF:Q4_K_M',
+    model = 'gemma4:q4',
     reasoning=True
 )
 llm = llm.bind_tools(tools)
@@ -54,6 +53,10 @@ SYSTEM_MESSAGE = """
 You are a helpful assistant.
 
 You may call tools to answer the user's question.
+When there are multiple messages, the first message is the user's question, the next messages are your responses
+and tool call results. Your job is to use the messages to answer the user's query.
+
+IMPORTANT: WHEN CALLING A TOOL REMEMBER TO PASS LIMITS TO PREVENT FETCHING A LOT OF DATA.
 
 IMPORTANT RULES:
 
@@ -98,9 +101,8 @@ def get_llm_res(prompt: str) -> str:
                 full_content = chunk
 
         full_message = AIMessage(
-            content = full_content.content,
+            content = '',
             tool_calls = full_content.tool_calls,
-            # additional_kwargs=full_content.additional_kwargs,
         )
         messages.append(full_message)
 
