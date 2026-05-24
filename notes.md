@@ -24,9 +24,12 @@
   ollama run gemma4:q4
   ```
 
-## Why Gemma Why?
-- Gemma uses role `tool_response` for tool's response whereas most other models use `tool`.
-- Langchain does not support setting custom `tool_response` role and therefore we were unable to get it to work fully.
+## The world is nothing but Hallucinations
+- With thinking mode enabled, Gemma tends to hallucinate the tool response before it makes a call to the tool.
+  - It does indeed make a tool call later but a lot of the times it isn't able to use the tool response to form the final result.
+- One very important thing to be considered is that the small, local models start falling on their heads as the context gets even a little bigger - hallucinations starts, they can't use the data in the context, etc, etc. It's important to keep the contexts in check.
+- Qwen's instruct model does not have thinking and for the simpler tasks that actually performs the best though because there's no thinking it seems a little less responsive.
+- One very important thing to note - ***In the process of thinking, models tend to hallucinate a lot of stuff. So, for simpler tasks, don't use thinking at all. Use thinking models only when a lot of planning is needed and the task is pretty complex.***
 
 # References
 - [Quantization](https://huggingface.co/docs/optimum/en/concept_guides/quantization)

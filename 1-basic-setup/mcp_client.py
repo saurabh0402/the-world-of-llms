@@ -40,8 +40,9 @@ tools = [
 
 llm = ChatOllama(
     # model='hf.co/unsloth/Qwen3-4B-Thinking-2507-GGUF:Q4_K_M',
-    model = 'gemma4:q4',
-    reasoning=True
+    # model = 'gemma4:q4',
+    model='hf.co/unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M',
+    reasoning=True,
 )
 llm = llm.bind_tools(tools)
 
@@ -74,23 +75,35 @@ IMPORTANT RULES:
 3. Tool results are factual and should be trusted.
 
 4. Keep answers concise.
+
+CRITICAL RULES:
+- NEVER simulate, guess, or assume tool results
+- NEVER roleplay receiving a tool response
+- After calling a tool, output NOTHING — wait silently for the actual ToolMessage
+- Only answer the user AFTER you have received a real ToolMessage
+- Tool results will be provided to you automatically; do not invent them
 """
 
 def get_llm_res(prompt: str) -> str:
     messages = [SystemMessage(SYSTEM_MESSAGE), HumanMessage(prompt)]
+    print('----------------------------------------------------------')
+
     while True:
         full_content = None
         tool_calls = []
-        thinking = True
+        thinking = False
 
-        print('Making llm call...')
+        print('\033[92mMaking llm call...\033[0m')
         for chunk in llm.stream(messages):
             if chunk.additional_kwargs:
-                print(chunk.additional_kwargs['reasoning_content'], end="", flush=True)
+                if not thinking:
+                    print('----------------------------------------------------------')
+                    thinking = True
+                print(f"\033[2m{chunk.additional_kwargs['reasoning_content']}\033[0m", end="", flush=True)
 
             if chunk.content:
                 if thinking:
-                    print('\n')
+                    print('\n----------------------------------------------------------')
                     thinking = False
 
                 print(chunk.content, end="", flush=True)
@@ -105,21 +118,25 @@ def get_llm_res(prompt: str) -> str:
             tool_calls = full_content.tool_calls,
         )
         messages.append(full_message)
+        print()
 
         if len(full_message.tool_calls):
+            print('----------------------------------------------------------')
             for tool_call in full_message.tool_calls:
                 tool_name = tool_call['name']
                 tool_args = tool_call['args']
 
-                print(f'Calling tool - "{tool_name}" with args - {tool_args}.')
+                print(f'\033[92mCalling tool - "{tool_name}" with args - {tool_args}.\033[0m')
 
                 res = asyncio.run(tool_mapper[tool_name].ainvoke(tool_args))
                 messages.append(ToolMessage(content=json.dumps(res[0]['text']), tool_call_id=tool_call['id']))
 
-                print('Tool call done!')
+                print('\033[92mTool call done!\033[0m')
+            print('----------------------------------------------------------')
         else:
-            print()
-            return
+            break
+    
+    print('----------------------------------------------------------')
 
 while True:
     print('> ', end='')
