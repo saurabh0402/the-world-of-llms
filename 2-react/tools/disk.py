@@ -1,5 +1,6 @@
 from langchain.tools import tool
 from pathlib import Path
+from typing import Optional
 
 # --------------------------
 #        HELPERS

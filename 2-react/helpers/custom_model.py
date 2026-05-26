@@ -5,7 +5,7 @@ from tools import all_tools
 class CustomModel:
     def __init__(
         self,
-        model = 'hf.co/unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M'
+        model='hf.co/unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M'
     ):
         _llm = ChatOllama(
             model=model,
