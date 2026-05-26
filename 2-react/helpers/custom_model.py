@@ -1,6 +1,6 @@
 from langchain_ollama import ChatOllama
 from langchain.messages import AIMessage
-from .tools import all_tools
+from tools import all_tools
 
 class CustomModel:
     def __init__(
@@ -47,4 +47,3 @@ class CustomModel:
             return ('', full_content.tool_calls)
 
         return (full_content.content, [])
-
