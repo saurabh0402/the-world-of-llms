@@ -11,6 +11,9 @@ AGENT_INTRO_PROMPT = """
     if you want to make another set of tool calls or you have enough data to finally
     respond to the user with the final result.
 
+    IF THERE IS ANY MISSING DATA OR YOU NEED SOME CLARIFICATION FROM THE USER, ASK
+    THE USER FOR THE SAME USING THE ask_user TOOL.
+
     IMPORTANT INSTRUCTIONS
     - NEVER assume tool call results.
     - NEVER assume tools, use only those that are made available to you.
@@ -18,8 +21,7 @@ AGENT_INTRO_PROMPT = """
       say as such to the user. Do not assume things.
     - When there are more than 1 messages in a conversation, you are given all of them
       with the latest one being first followed by older and older messages.
-""";
-
+"""
 
 def get_react_agent():
     llm = CustomModel()

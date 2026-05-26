@@ -31,5 +31,10 @@
 - Qwen's instruct model does not have thinking and for the simpler tasks that actually performs the best though because there's no thinking it seems a little less responsive.
 - One very important thing to note - ***In the process of thinking, models tend to hallucinate a lot of stuff. So, for simpler tasks, don't use thinking at all. Use thinking models only when a lot of planning is needed and the task is pretty complex.***
 
+## The oddities of tool calling
+- So, I created this tool call `ask_user` which basically is for getting input from user when needed.
+- As it turns out, non-thinking models are just not able to handle that sadly.
+- Only reasoning models are able to use that tool, get user input, and perform required actions.
+
 # References
 - [Quantization](https://huggingface.co/docs/optimum/en/concept_guides/quantization)

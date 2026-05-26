@@ -9,7 +9,7 @@ class CustomModel:
     ):
         _llm = ChatOllama(
             model=model,
-            reasoning=True,
+            # reasoning=True,
         )
 
         self.tool_mappings = {
