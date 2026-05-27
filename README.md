@@ -2,7 +2,7 @@
 - [x] Basic Setup with Ollama
 - [x] MCP Client
 - [x] Streaming
-- [ ] ReAct
+- [x] ReAct
 - [ ] Human in the Loop
 - [ ] MCP Server
 - [ ] RAG
