@@ -1,4 +1,7 @@
 # The World of LLMs
+Experiments with some locally running LLMs.
+
+# ToDos
 - [x] Basic Setup with Ollama
 - [x] MCP Client
 - [x] Streaming
@@ -9,3 +12,9 @@
 - [ ] Memory
 - [ ] Multi Agents
 - [ ] Evaluation
+
+# Things to Look Into
+- [ ] Fine-tuning
+- [ ] Model Distillation
+- [ ] Running models with [Llama.cpp](https://github.com/ggml-org/llama.cpp)
+- [ ] Experiments with LLM parameters
