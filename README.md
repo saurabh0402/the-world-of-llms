@@ -3,7 +3,7 @@
 - [x] MCP Client
 - [x] Streaming
 - [x] ReAct
-- [ ] Human in the Loop
+- [x] Human in the Loop
 - [ ] MCP Server
 - [ ] RAG
 - [ ] Memory
