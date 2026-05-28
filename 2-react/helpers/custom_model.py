@@ -40,8 +40,8 @@ class CustomModel:
             else:
                 full_content = chunk
 
-        if full_content.content:
-            print()
+        if full_content.content or full_content.additional_kwargs:
+            print('\n----------------------------------------------------------')
 
         if full_content.tool_calls:
             return ('', full_content.tool_calls)
