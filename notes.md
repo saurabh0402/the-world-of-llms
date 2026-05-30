@@ -1,5 +1,5 @@
 # Notes
-## Running Gemma4
+## Running Gemma4 using Ollama
 - Running Gemma4 on Ollama is failing with the following error
   ```
   Error: 500 Internal Server Error: unable to load model: /usr/share/ollama/.ollama/models/blobs/sha256-da6cde635109e22692b6ccb3a6075e44a9e2f7e6c698383b51a58aa9b8011de8
@@ -35,6 +35,21 @@
 - So, I created this tool call `ask_user` which basically is for getting input from user when needed.
 - As it turns out, non-thinking models are just not able to handle that sadly.
 - Only reasoning models are able to use that tool, get user input, and perform required actions.
+
+## Running models using llama.cpp
+- Once llama.cpp has been built, we can run the models very easily.
+- Firstly download the `gguf` file.
+- Then, run the model simply with the following command
+  ```bash
+  llama-server -m models/gemma-4-E4B-it-Q4_K_M.gguf
+  ```
+- For multimodal support, it is important to set the `mmproj` file as well. It can be done so with the following command
+  ```bash
+  llama-server -m models/gemma4/gemma-4-E4B-it-Q4_K_M.gguf --jinja --reasoning-format auto --mmproj models/gemma4/mmproj-F16.gguf 
+  ```
+  For downloading the mmproj file, we need to go the files page in huggingface, find the file and then download it.
+- Oddly though `langchain` does not support the way `llama.cpp` is sending over the reasoning tokens. So, we need to use the openai SDK directly to get that to work.
+- ***Note***: What we found out was that Gemma does not support `webp` images.
 
 # References
 - [Quantization](https://huggingface.co/docs/optimum/en/concept_guides/quantization)
