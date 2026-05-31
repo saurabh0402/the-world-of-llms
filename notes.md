@@ -51,5 +51,10 @@
 - Oddly though `langchain` does not support the way `llama.cpp` is sending over the reasoning tokens. So, we need to use the openai SDK directly to get that to work.
 - ***Note***: What we found out was that Gemma does not support `webp` images.
 
+## The sad life of image generation
+- Sadly the image-generation models are much bigger and need much more CPU/RAM.
+- I can get some small model to run but it would take 10-15 minutes to create just a small image.
+- Therefore, I won't be able to try this.
+
 # References
 - [Quantization](https://huggingface.co/docs/optimum/en/concept_guides/quantization)

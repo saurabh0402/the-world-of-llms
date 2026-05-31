@@ -7,7 +7,7 @@ Experiments with some locally running LLMs.
 - [x] Streaming
 - [x] ReAct
 - [x] Human in the Loop
-- [ ] Pass images to LLM
+- [x] Pass images to LLM
 - [ ] Interact using audio
 - [ ] Generate images from LLM
 - [ ] MCP Server
