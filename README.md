@@ -8,7 +8,7 @@ Experiments with some locally running LLMs.
 - [x] ReAct
 - [x] Human in the Loop
 - [x] Pass images to LLM
-- [ ] Interact using audio
+- [x] Interact using audio
 - [ ] Generate images from LLM
 - [ ] MCP Server
 - [ ] RAG
