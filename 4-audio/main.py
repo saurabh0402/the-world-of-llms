@@ -29,6 +29,7 @@ def main():
         print('🎙️ Say something beautiful')
         audio_b64encoded = record(selected_device[0])
         generate_audio(generate_response(audio_b64encoded))
+        print('############################################################################################################')
 
 if __name__ == '__main__':
     main()

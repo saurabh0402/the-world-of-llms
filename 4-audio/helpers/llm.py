@@ -31,7 +31,7 @@ def generate_response(audio):
                 'content': [{
                     'type': 'input_audio',
                     'input_audio': {
-                        'data': f'{audio}',
+                        'data': audio,
                         'format': 'wav',
                     }
                 }]
