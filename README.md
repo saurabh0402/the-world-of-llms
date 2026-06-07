@@ -1,4 +1,6 @@
 # The World of LLMs
+<img src="./images/main.png" width=400>
+
 Experiments with some locally running LLMs.
 
 ## ToDos
