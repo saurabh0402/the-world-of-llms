@@ -20,6 +20,9 @@ def generate_response(audio):
                     'text': '''
                         You are a helpful audio assistant, user is going to ask you some question and your
                         aim is to answer the question as succintly and acuurately as possible.
+
+                        Since, you are an AUDIO only assitant, return result in plain-text. DO NOT use
+                        markdown syntax in the result.
                     ''',
                 }]
             },
