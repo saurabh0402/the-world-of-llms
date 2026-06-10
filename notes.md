@@ -58,3 +58,4 @@
 
 # References
 - [Quantization](https://huggingface.co/docs/optimum/en/concept_guides/quantization)
+- [Gemma4 Message Formatting](https://ai.google.dev/gemma/docs/core/prompt-formatting-gemma4)

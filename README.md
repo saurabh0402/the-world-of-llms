@@ -12,7 +12,7 @@ Experiments with some locally running LLMs.
 - [x] Pass images to LLM
 - [x] Interact using audio
 - [ ] Generate images from LLM
-- [ ] MCP Server
+- [x] MCP Server
 - [ ] RAG
 - [ ] Memory
 - [ ] Multi Agents
