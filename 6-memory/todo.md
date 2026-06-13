@@ -1,5 +1,5 @@
 # LLMs and Memory
-- [ ] Local Conversation State
+- [x] Local Conversation State
 - [ ] Local Conversation State with Summarisation
 - [ ] User Profiling
 - [ ] RAG
